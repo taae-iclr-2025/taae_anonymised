@@ -170,7 +170,32 @@
             </th>
           </table>
 
-          <br></br>
+        <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+            <th style="border: None;">
+                <h2 id="graph">
+                <center>
+                <h1>Model Architecture</h1>
+                </center>
+            </h2>
+            <p style="text-align: justify; color:black;font-family: georgian;">
+                <font> 
+                Architecture of the proposed model TAAE (Transformer Audio AutoEncoder). Detail is shown for the encoder block and sub-blocks. The decoder block is configured identically to the encoder block, with the exception of the strided convolution, which is replaced with its transposed equivalent and moved to the end of the $T_m$ blocks.
+                </font>
+            </p>
+            <figure>
+                <p align="center">
+                    <img src="arch.jpg" style="width: 60%; max-width: 800px;" class="center" />
+                </p>                
+                <figcaption>
+                <p style="text-align: justify;">
+                    <center>
+                    <font color="061E61"><b>Figure:</b> Framework of proposed TAAE.
+                    </center>
+                </p>
+                </figcaption>
+            </figure>
+            </th>
+        </table>
 
           <h2 id="section_1">
             <h3 style="color: black;">Speech Samples (16 kHz)</h3>
@@ -183,6 +208,16 @@
                   <th scope="col">
                     <center>
                       <font color="061E61">Ground Truth</font>
+                    </center>
+                  </th>
+                  <th scope="col">
+                    <center>
+                      <font color="061E61">TAAE@0.4kbps</font>
+                    </center>
+                  </th>
+                  <th scope="col">
+                    <center>
+                      <font color="061E61">TAAE@0.7kbps</font>
                     </center>
                   </th>
                   <th scope="col">
@@ -205,95 +240,20 @@
                       <font color="061E61">SemantiCodec@0.68kbps</font>
                     </center>
                   </th>
-                  <th scope="col">
-                    <center>
-                      <font color="061E61">TAAE@0.4kbps</font>
-                    </center>
-                  </th>
-                  <th scope="col">
-                    <center>
-                      <font color="061E61">TAAE@0.7kbps</font>
-                    </center>
-                  </th>
                 </tr>
               </thead>
               <tbody>
-                <!-- 示例1 -->
-                <tr>
-                  <!-- 图片行 -->
-                  <td>
-                    <img alt="121-121726-0010" src="figs/groundtruth_speech/121-121726-0010.png" />
-                  </td>
-                  <td>
-                    <img alt="121-121726-0010" src="figs/mimi_4_speech/121-121726-0010.png" />
-                  </td>
-                  <td>
-                    <img alt="121-121726-0010" src="figs/mimi_8_speech/121-121726-0010.png" />
-                  </td>
-                  <td>
-                    <img alt="121-121726-0010" src="figs/semantiCodec_25_speech/121-121726-0010.png" />
-                  </td>
-                  <td>
-                    <img alt="121-121726-0010" src="figs/semantiCodec_50_speech/121-121726-0010.png" />
-                  </td>
-                  <td>
-                    <img alt="121-121726-0010" src="figs/tae_highkbps_speech/121-121726-0010.png" />
-                  </td>
-                  <td>
-                    <img alt="121-121726-0010" src="figs/tae_lowkbps_speech/121-121726-0010.png" />
-                  </td>
-                </tr>
-                <tr>
-                  <!-- 音频行 -->
-                  <td>
-                    <audio controls>
-                      <source src="audios/groundtruth_speech/121-121726-0010.wav" type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                  <td>
-                    <audio controls>
-                      <source src="audios/mimi_4_speech/121-121726-0010.wav" type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                  <td>
-                    <audio controls>
-                      <source src="audios/mimi_8_speech/121-121726-0010.wav" type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                  <td>
-                    <audio controls>
-                      <source src="audios/semantiCodec_25_speech/121-121726-0010.wav" type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                  <td>
-                    <audio controls>
-                      <source src="audios/semantiCodec_50_speech/121-121726-0010.wav" type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                  <td>
-                    <audio controls>
-                      <source src="audios/tae_highkbps_speech/121-121726-0010.wav" type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                  <td>
-                    <audio controls>
-                      <source src="audios/tae_lowkbps_speech/121-121726-0010.wav" type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                </tr>
-
                 <!-- 示例2 -->
                 <tr>
                   <!-- 图片行 -->
                   <td>
                     <img alt="260-123286-0018" src="figs/groundtruth_speech/260-123286-0018.png" />
+                  </td>
+                  <td>
+                    <img alt="260-123286-0018" src="figs/tae_lowkbps_speech/260-123286-0018.png" />
+                  </td>
+                  <td>
+                    <img alt="260-123286-0018" src="figs/tae_highkbps_speech/260-123286-0018.png" />
                   </td>
                   <td>
                     <img alt="260-123286-0018" src="figs/mimi_4_speech/260-123286-0018.png" />
@@ -307,18 +267,24 @@
                   <td>
                     <img alt="260-123286-0018" src="figs/semantiCodec_50_speech/260-123286-0018.png" />
                   </td>
-                  <td>
-                    <img alt="260-123286-0018" src="figs/tae_highkbps_speech/260-123286-0018.png" />
-                  </td>
-                  <td>
-                    <img alt="260-123286-0018" src="figs/tae_lowkbps_speech/260-123286-0018.png" />
-                  </td>
                 </tr>
                 <tr>
                   <!-- 音频行 -->
                   <td>
                     <audio controls>
                       <source src="audios/groundtruth_speech/260-123286-0018.wav" type="audio/wav" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  </td>
+                  <td>
+                    <audio controls>
+                      <source src="audios/tae_lowkbps_speech/260-123286-0018.wav" type="audio/wav" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  </td>
+                  <td>
+                    <audio controls>
+                      <source src="audios/tae_highkbps_speech/260-123286-0018.wav" type="audio/wav" />
                       Your browser does not support the audio element.
                     </audio>
                   </td>
@@ -346,18 +312,6 @@
                       Your browser does not support the audio element.
                     </audio>
                   </td>
-                  <td>
-                    <audio controls>
-                      <source src="audios/tae_highkbps_speech/260-123286-0018.wav" type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                  <td>
-                    <audio controls>
-                      <source src="audios/tae_lowkbps_speech/260-123286-0018.wav" type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
                 </tr>
               </tbody>
 
@@ -366,6 +320,12 @@
                     <!-- 图片行 -->
                     <td>
                     <img alt="1320-122612-0008" src="figs/groundtruth_speech/1320-122612-0008.png" />
+                    </td>
+                    <td>
+                    <img alt="1320-122612-0008" src="figs/tae_lowkbps_speech/1320-122612-0008.png" />
+                    </td>
+                    <td>
+                    <img alt="1320-122612-0008" src="figs/tae_highkbps_speech/1320-122612-0008.png" />
                     </td>
                     <td>
                     <img alt="1320-122612-0008" src="figs/mimi_4_speech/1320-122612-0008.png" />
@@ -379,18 +339,25 @@
                     <td>
                     <img alt="1320-122612-0008" src="figs/semantiCodec_50_speech/1320-122612-0008.png" />
                     </td>
-                    <td>
-                    <img alt="1320-122612-0008" src="figs/tae_highkbps_speech/1320-122612-0008.png" />
-                    </td>
-                    <td>
-                    <img alt="1320-122612-0008" src="figs/tae_lowkbps_speech/1320-122612-0008.png" />
-                    </td>
+
                 </tr>
                 <tr>
                     <!-- 音频行 -->
                     <td>
                     <audio controls>
                         <source src="audios/groundtruth_speech/1320-122612-0008.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                    </audio>
+                    </td>
+                    <td>
+                    <audio controls>
+                        <source src="audios/tae_lowkbps_speech/1320-122612-0008.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                    </audio>
+                    </td>
+                    <td>
+                    <audio controls>
+                        <source src="audios/tae_highkbps_speech/1320-122612-0008.wav" type="audio/wav" />
                         Your browser does not support the audio element.
                     </audio>
                     </td>
@@ -418,18 +385,7 @@
                         Your browser does not support the audio element.
                     </audio>
                     </td>
-                    <td>
-                    <audio controls>
-                        <source src="audios/tae_highkbps_speech/1320-122612-0008.wav" type="audio/wav" />
-                        Your browser does not support the audio element.
-                    </audio>
-                    </td>
-                    <td>
-                    <audio controls>
-                        <source src="audios/tae_lowkbps_speech/1320-122612-0008.wav" type="audio/wav" />
-                        Your browser does not support the audio element.
-                    </audio>
-                    </td>
+
                 </tr>
                 </tbody>
 
@@ -438,6 +394,12 @@
                     <!-- 图片行 -->
                     <td>
                     <img alt="1995-1837-0024" src="figs/groundtruth_speech/1995-1837-0024.png" />
+                    </td>
+                    <td>
+                    <img alt="1995-1837-0024" src="figs/tae_lowkbps_speech/1995-1837-0024.png" />
+                    </td>
+                    <td>
+                    <img alt="1995-1837-0024" src="figs/tae_highkbps_speech/1995-1837-0024.png" />
                     </td>
                     <td>
                     <img alt="1995-1837-0024" src="figs/mimi_4_speech/1995-1837-0024.png" />
@@ -451,18 +413,24 @@
                     <td>
                     <img alt="1995-1837-0024" src="figs/semantiCodec_50_speech/1995-1837-0024.png" />
                     </td>
-                    <td>
-                    <img alt="1995-1837-0024" src="figs/tae_highkbps_speech/1995-1837-0024.png" />
-                    </td>
-                    <td>
-                    <img alt="1995-1837-0024" src="figs/tae_lowkbps_speech/1995-1837-0024.png" />
-                    </td>
                 </tr>
                 <tr>
                     <!-- 音频行 -->
                     <td>
                     <audio controls>
                         <source src="audios/groundtruth_speech/1995-1837-0024.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                    </audio>
+                    </td>
+                    <td>
+                    <audio controls>
+                    <source src="audios/tae_lowkbps_speech/1995-1837-0024.wav" type="audio/wav" />
+                    Your browser does not support the audio element.
+                    </audio>
+                    </td>
+                    <td>
+                    <audio controls>
+                        <source src="audios/tae_highkbps_speech/1995-1837-0024.wav" type="audio/wav" />
                         Your browser does not support the audio element.
                     </audio>
                     </td>
@@ -490,18 +458,6 @@
                         Your browser does not support the audio element.
                     </audio>
                     </td>
-                    <td>
-                    <audio controls>
-                        <source src="audios/tae_highkbps_speech/1995-1837-0024.wav" type="audio/wav" />
-                        Your browser does not support the audio element.
-                    </audio>
-                    </td>
-                    <td>
-                    <audio controls>
-                        <source src="audios/tae_lowkbps_speech/1995-1837-0024.wav" type="audio/wav" />
-                        Your browser does not support the audio element.
-                    </audio>
-                    </td>
                 </tr>
                 </tbody>
 
@@ -510,6 +466,12 @@
                     <!-- 图片行 -->
                     <td>
                     <img alt="4077-13754-0003" src="figs/groundtruth_speech/4077-13754-0003.png" />
+                    </td>
+                    <td>
+                    <img alt="4077-13754-0003" src="figs/tae_lowkbps_speech/4077-13754-0003.png" />
+                    </td>
+                    <td>
+                    <img alt="4077-13754-0003" src="figs/tae_highkbps_speech/4077-13754-0003.png" />
                     </td>
                     <td>
                     <img alt="4077-13754-0003" src="figs/mimi_4_speech/4077-13754-0003.png" />
@@ -523,18 +485,25 @@
                     <td>
                     <img alt="4077-13754-0003" src="figs/semantiCodec_50_speech/4077-13754-0003.png" />
                     </td>
-                    <td>
-                    <img alt="4077-13754-0003" src="figs/tae_highkbps_speech/4077-13754-0003.png" />
-                    </td>
-                    <td>
-                    <img alt="4077-13754-0003" src="figs/tae_lowkbps_speech/4077-13754-0003.png" />
-                    </td>
+
                 </tr>
                 <tr>
                     <!-- 音频行 -->
                     <td>
                     <audio controls>
                         <source src="audios/groundtruth_speech/4077-13754-0003.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                    </audio>
+                    </td>
+                    <td>
+                    <audio controls>
+                        <source src="audios/tae_lowkbps_speech/4077-13754-0003.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                    </audio>
+                    </td>
+                    <td>
+                    <audio controls>
+                        <source src="audios/tae_highkbps_speech/4077-13754-0003.wav" type="audio/wav" />
                         Your browser does not support the audio element.
                     </audio>
                     </td>
@@ -559,18 +528,6 @@
                     <td>
                     <audio controls>
                         <source src="audios/semantiCodec_50_speech/4077-13754-0003.wav" type="audio/wav" />
-                        Your browser does not support the audio element.
-                    </audio>
-                    </td>
-                    <td>
-                    <audio controls>
-                        <source src="audios/tae_highkbps_speech/4077-13754-0003.wav" type="audio/wav" />
-                        Your browser does not support the audio element.
-                    </audio>
-                    </td>
-                    <td>
-                    <audio controls>
-                        <source src="audios/tae_lowkbps_speech/4077-13754-0003.wav" type="audio/wav" />
                         Your browser does not support the audio element.
                     </audio>
                     </td>
@@ -602,6 +559,16 @@
                           </th>
                           <th scope="col">
                             <center>
+                              <font color="061E61">TAAE@0.4kbps</font>
+                            </center>
+                          </th>
+                          <th scope="col">
+                            <center>
+                              <font color="061E61">TAAE@0.7kbps</font>
+                            </center>
+                          </th>
+                          <th scope="col">
+                            <center>
                               <font color="061E61">Mimi@0.55kbps</font>
                             </center>
                           </th>
@@ -620,16 +587,6 @@
                               <font color="061E61">SemantiCodec@0.68kbps</font>
                             </center>
                           </th>
-                          <th scope="col">
-                            <center>
-                              <font color="061E61">TAAE@0.4kbps</font>
-                            </center>
-                          </th>
-                          <th scope="col">
-                            <center>
-                              <font color="061E61">TAAE@0.7kbps</font>
-                            </center>
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -638,6 +595,12 @@
                           <!-- 图片行 -->
                           <td>
                             <img alt="4446-2273-0035" src="figs/groundtruth_speech/4446-2273-0035.png" />
+                          </td>
+                          <td>
+                            <img alt="4446-2273-0035" src="figs/tae_lowkbps_speech/4446-2273-0035.png" />
+                          </td>
+                          <td>
+                            <img alt="4446-2273-0035" src="figs/tae_highkbps_speech/4446-2273-0035.png" />
                           </td>
                           <td>
                             <img alt="4446-2273-0035" src="figs/mimi_4_speech/4446-2273-0035.png" />
@@ -651,18 +614,25 @@
                           <td>
                             <img alt="4446-2273-0035" src="figs/semantiCodec_50_speech/4446-2273-0035.png" />
                           </td>
-                          <td>
-                            <img alt="4446-2273-0035" src="figs/tae_highkbps_speech/4446-2273-0035.png" />
-                          </td>
-                          <td>
-                            <img alt="4446-2273-0035" src="figs/tae_lowkbps_speech/4446-2273-0035.png" />
-                          </td>
+
                         </tr>
                         <tr>
                           <!-- 音频行 -->
                           <td>
                             <audio controls>
                               <source src="audios/groundtruth_speech/4446-2273-0035.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="audios/tae_lowkbps_speech/4446-2273-0035.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="audios/tae_highkbps_speech/4446-2273-0035.wav" type="audio/wav" />
                               Your browser does not support the audio element.
                             </audio>
                           </td>
@@ -690,18 +660,6 @@
                               Your browser does not support the audio element.
                             </audio>
                           </td>
-                          <td>
-                            <audio controls>
-                              <source src="audios/tae_highkbps_speech/4446-2273-0035.wav" type="audio/wav" />
-                              Your browser does not support the audio element.
-                            </audio>
-                          </td>
-                          <td>
-                            <audio controls>
-                              <source src="audios/tae_lowkbps_speech/4446-2273-0035.wav" type="audio/wav" />
-                              Your browser does not support the audio element.
-                            </audio>
-                          </td>
                         </tr>
 
 
@@ -711,6 +669,12 @@
                             <!-- 图片行 -->
                             <td>
                                 <img alt="4970-29093-0019" src="figs/groundtruth_speech/4970-29093-0019.png" />
+                            </td>
+                            <td>
+                                <img alt="4970-29093-0019" src="figs/tae_lowkbps_speech/4970-29093-0019.png" />
+                            </td>
+                            <td>
+                                <img alt="4970-29093-0019" src="figs/tae_highkbps_speech/4970-29093-0019.png" />
                             </td>
                             <td>
                                 <img alt="4970-29093-0019" src="figs/mimi_4_speech/4970-29093-0019.png" />
@@ -724,18 +688,25 @@
                             <td>
                                 <img alt="4970-29093-0019" src="figs/semantiCodec_50_speech/4970-29093-0019.png" />
                             </td>
-                            <td>
-                                <img alt="4970-29093-0019" src="figs/tae_highkbps_speech/4970-29093-0019.png" />
-                            </td>
-                            <td>
-                                <img alt="4970-29093-0019" src="figs/tae_lowkbps_speech/4970-29093-0019.png" />
-                            </td>
+
                         </tr>
                         <tr>
                         <!-- 音频行 -->
                         <td>
                             <audio controls>
                             <source src="audios/groundtruth_speech/4970-29093-0019.wav" type="audio/wav" />
+                            Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                            <source src="audios/tae_lowkbps_speech/4970-29093-0019.wav" type="audio/wav" />
+                            Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                            <source src="audios/tae_highkbps_speech/4970-29093-0019.wav" type="audio/wav" />
                             Your browser does not support the audio element.
                             </audio>
                         </td>
@@ -763,18 +734,6 @@
                             Your browser does not support the audio element.
                             </audio>
                         </td>
-                        <td>
-                            <audio controls>
-                            <source src="audios/tae_highkbps_speech/4970-29093-0019.wav" type="audio/wav" />
-                            Your browser does not support the audio element.
-                            </audio>
-                        </td>
-                        <td>
-                            <audio controls>
-                            <source src="audios/tae_lowkbps_speech/4970-29093-0019.wav" type="audio/wav" />
-                            Your browser does not support the audio element.
-                            </audio>
-                        </td>
                         </tr>
 
 
@@ -783,6 +742,12 @@
                             <!-- 图片行 -->
                             <td>
                               <img alt="5683-32865-0013" src="figs/groundtruth_speech/5683-32865-0013.png" />
+                            </td>
+                            <td>
+                                <img alt="5683-32865-0013" src="figs/tae_lowkbps_speech/5683-32865-0013.png" />
+                            </td>
+                            <td>
+                                <img alt="5683-32865-0013" src="figs/tae_highkbps_speech/5683-32865-0013.png" />
                             </td>
                             <td>
                               <img alt="5683-32865-0013" src="figs/mimi_4_speech/5683-32865-0013.png" />
@@ -796,18 +761,25 @@
                             <td>
                               <img alt="5683-32865-0013" src="figs/semantiCodec_50_speech/5683-32865-0013.png" />
                             </td>
-                            <td>
-                              <img alt="5683-32865-0013" src="figs/tae_highkbps_speech/5683-32865-0013.png" />
-                            </td>
-                            <td>
-                              <img alt="5683-32865-0013" src="figs/tae_lowkbps_speech/5683-32865-0013.png" />
-                            </td>
+
                         </tr>
                         <tr>
                         <!-- 音频行 -->
                         <td>
                             <audio controls>
                             <source src="audios/groundtruth_speech/5683-32865-0013.wav" type="audio/wav" />
+                            Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                            <source src="audios/tae_lowkbps_speech/5683-32865-0013.wav" type="audio/wav" />
+                            Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                            <source src="audios/tae_highkbps_speech/5683-32865-0013.wav" type="audio/wav" />
                             Your browser does not support the audio element.
                             </audio>
                         </td>
@@ -835,18 +807,6 @@
                             Your browser does not support the audio element.
                             </audio>
                         </td>
-                        <td>
-                            <audio controls>
-                            <source src="audios/tae_highkbps_speech/5683-32865-0013.wav" type="audio/wav" />
-                            Your browser does not support the audio element.
-                            </audio>
-                        </td>
-                        <td>
-                            <audio controls>
-                            <source src="audios/tae_lowkbps_speech/5683-32865-0013.wav" type="audio/wav" />
-                            Your browser does not support the audio element.
-                            </audio>
-                        </td>
                         </tr>
 
                         <!-- 示例4 -->
@@ -854,6 +814,12 @@
                             <!-- 图片行 -->
                             <td>
                               <img alt="7021-79730-0005" src="figs/groundtruth_speech/7021-79730-0005.png" />
+                            </td>
+                            <td>
+                                <img alt="7021-79730-0005" src="figs/tae_lowkbps_speech/7021-79730-0005.png" />
+                            </td>
+                            <td>
+                                <img alt="7021-79730-0005" src="figs/tae_highkbps_speech/7021-79730-0005.png" />
                             </td>
                             <td>
                               <img alt="7021-79730-0005" src="figs/mimi_4_speech/7021-79730-0005.png" />
@@ -867,18 +833,24 @@
                             <td>
                               <img alt="7021-79730-0005" src="figs/semantiCodec_50_speech/7021-79730-0005.png" />
                             </td>
-                            <td>
-                              <img alt="7021-79730-0005" src="figs/tae_highkbps_speech/7021-79730-0005.png" />
-                            </td>
-                            <td>
-                              <img alt="7021-79730-0005" src="figs/tae_lowkbps_speech/7021-79730-0005.png" />
-                            </td>
                         </tr>
                         <tr>
                         <!-- 音频行 -->
                         <td>
                             <audio controls>
                             <source src="audios/groundtruth_speech/7021-79730-0005.wav" type="audio/wav" />
+                            Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                            <source src="audios/tae_lowkbps_speech/7021-79730-0005.wav" type="audio/wav" />
+                            Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                            <source src="audios/tae_highkbps_speech/7021-79730-0005.wav" type="audio/wav" />
                             Your browser does not support the audio element.
                             </audio>
                         </td>
@@ -903,18 +875,6 @@
                         <td>
                             <audio controls>
                             <source src="audios/semantiCodec_50_speech/7021-79730-0005.wav" type="audio/wav" />
-                            Your browser does not support the audio element.
-                            </audio>
-                        </td>
-                        <td>
-                            <audio controls>
-                            <source src="audios/tae_highkbps_speech/7021-79730-0005.wav" type="audio/wav" />
-                            Your browser does not support the audio element.
-                            </audio>
-                        </td>
-                        <td>
-                            <audio controls>
-                            <source src="audios/tae_lowkbps_speech/7021-79730-0005.wav" type="audio/wav" />
                             Your browser does not support the audio element.
                             </audio>
                         </td>
